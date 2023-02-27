@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Brilliant-Minds-Ideas-Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/becodeorg/verou-4-brilliant-ideas-Piouscode.git"
+  },
+  "author": "Pious Alpha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/becodeorg/verou-4-brilliant-ideas-Piouscode/issues"
+  },
+  "homepage": "https://github.com/becodeorg/verou-4-brilliant-ideas-Piouscode#readme"
+}
