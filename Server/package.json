@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/becodeorg/verou-4-brilliant-ideas-Piouscode/issues"
   },
-  "homepage": "https://github.com/becodeorg/verou-4-brilliant-ideas-Piouscode#readme"
+  "homepage": "https://github.com/becodeorg/verou-4-brilliant-ideas-Piouscode#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mariadb": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }
