@@ -19,9 +19,21 @@ export async function loadIdeas() {
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', async () => {
-                const res = await fetch(`http://localhost:3000/ideas/${idea.id}`, { method: 'DELETE' });
-                if (res.ok) {
-                    li.remove();
+                const confirmed = confirm('Are you sure you want to delete this idea?');
+                if (!confirmed) {
+                    return; // Do nothing if the user cancels the confirmation
+                }
+
+                // Delete the idea if confirmed
+                try {
+                    const res = await fetch(`http://localhost:3000/ideas/${idea.id}`, { method: 'DELETE' });
+                    if (res.ok) {
+                        li.remove();
+                    } else {
+                        console.error('Failed to delete idea:', res.statusText);
+                    }
+                } catch (error) {
+                    console.error('Failed to delete idea:', error);
                 }
             });
 
