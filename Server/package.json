@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Brilliant-Minds-Ideas-Project",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.mjs",
+    "dev": "nodemon server.mjs"
   },
   "repository": {
     "type": "git",
