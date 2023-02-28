@@ -20,6 +20,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const { title, description } = req.body;
+    if (!title || !description) {
+        const err = new Error('Title and description cannot be empty');
+        res.status(400).send(err.message);
+        return;
+    }
     let connection;
     try {
         connection = await pool.getConnection();
@@ -71,6 +76,11 @@ router.route('/:id')
     .put(async (req, res, next) => {
         const { title, description } = req.body;
         const { id } = req.params;
+        if (!title || !description) {
+            const err = new Error('Title and description cannot be empty');
+            res.status(400).send(err.message);
+            return;
+        }
         console.log(`Updating idea ${id} with title ${title} and description ${description}`);
         let connection;
         try {

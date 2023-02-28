@@ -49,15 +49,34 @@ export async function loadIdeas() {
 
 // imported in client/createdPage.js
 export async function createIdea(title, description) {
-    const response = await fetch('http://localhost:3000/ideas', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, description })
-    });
-    const newIdea = await response.json();
-    console.log('Idea created:', newIdea);
-    return newIdea;
+    if (!title || !description) {
+        throw new Error('Title and description cannot be empty');
+    }
+    try {
+        const response = await fetch('http://localhost:3000/ideas', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title, description })
+        });
+        if (response.ok) {
+            const newIdea = await response.json();
+            console.log('Idea created:', newIdea);
+            return newIdea;
+        } else if (response.status === 400) {
+            const errorMessage = await response.text();
+            console.error('Failed to create idea:', errorMessage);
+            return { error: errorMessage };
+        } else {
+            console.error('Failed to create idea:', response.statusText);
+            return { error: 'Failed to create idea' };
+        }
+    } catch (error) {
+        console.error('Failed to create idea:', error);
+        return { error: 'Failed to create idea' };
+    }
 }
+
+
 
 export async function updateIdea(id, title, description) {
     const response = await fetch(`http://localhost:3000/ideas/${id}`, {
