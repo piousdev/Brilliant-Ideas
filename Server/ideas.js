@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     let connection;
     try {
         connection = await pool.getConnection();
-        const result = await connection.query(
+        const result = await connection.execute(
             'INSERT INTO ideas (title, description) VALUES (?, ?)',
             [title, description]
         );
@@ -49,7 +49,7 @@ router.route('/:id')
             const sql = 'SELECT id, title, description, created_at FROM ideas WHERE id = ?';
             // is the SQL query correct?
             console.log(`Executing SQL query: ${sql} with ID ${id}`);
-            const [idea] = await connection.query(sql, [id]).catch((error) => {
+            const [idea] = await connection.execute(sql, [id]).catch((error) => {
                 console.error(`Error executing SQL query: ${sql} with ID ${id}`, error);
             });
             console.log('Database response:', idea);
@@ -75,7 +75,7 @@ router.route('/:id')
         let connection;
         try {
             connection = await pool.getConnection();
-            await connection.query(
+            await connection.execute(
                 'UPDATE ideas SET title=?, description=? WHERE id=?',
                 [title, description, id]
             );
@@ -98,10 +98,8 @@ router.route('/:id')
         let connection;
         try {
             connection = await pool.getConnection();
-            const result = await connection.query(
-                'DELETE FROM ideas WHERE id = ?',
-                [id]
-            );
+            const stmt = await connection.prepare('DELETE FROM ideas WHERE id = ?');
+            const result = await stmt.execute(id);
             if (result.affectedRows === 0) {
                 res.status(404).send('Idea not found');
             } else {
@@ -114,4 +112,3 @@ router.route('/:id')
             if (connection) await connection.release();
         }
     });
-
