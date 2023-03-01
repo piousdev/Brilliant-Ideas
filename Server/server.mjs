@@ -19,6 +19,7 @@ app.use(cors());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../_assets')));
 
 // Mount the ideas router
 app.use('/ideas', ideasRouter);

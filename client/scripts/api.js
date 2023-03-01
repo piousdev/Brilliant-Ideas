@@ -1,26 +1,43 @@
-// imported in client/script.js
+// // imported in client/script.js
 export async function loadIdeas() {
     try {
         const response = await fetch('http://localhost:3000/ideas');
         const ideasList = document.getElementById('ideas-list');
         const ideas = await response.json();
+
+        let count = 1; // initialize a counter variable
+
         ideas.forEach(idea => {
             const ideaDiv = document.createElement('div');
             ideaDiv.classList.add('ideas');
 
-            const titleRowDiv = document.createElement('div');
-            titleRowDiv.classList.add('titles');
-            titleRowDiv.textContent = idea.title;
+            const countDiv = document.createElement('div');
+            countDiv.classList.add('count');
+            countDiv.textContent = `${count}.`; // display the count
+
+            const titleDiv = document.createElement('div');
+            titleDiv.classList.add('title');
+            titleDiv.textContent = `${idea.title}`; // display the title
+
+            const descriptionDiv = document.createElement('div');
+            descriptionDiv.classList.add('description');
+            descriptionDiv.textContent = `Description: ${idea.description}`; // display the description
+
+            const buttonDivs = document.createElement('div');
+            buttonDivs.classList.add('buttons');
 
             const updateButton = document.createElement('button');
+            updateButton.classList.add('updateButton');
             updateButton.textContent = 'Update';
+
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('deleteButton');
+            deleteButton.textContent = 'Delete';
+
+            // add event listeners to the buttons
             updateButton.addEventListener('click', async () => {
                 window.location.href = `http://localhost:3000/createdPage.html?id=${idea.id}&title=${idea.title}&description=${idea.description}`;
             });
-
-            const deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete');
-            deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', async () => {
                 const confirmed = confirm('Are you sure you want to delete this idea?');
                 if (!confirmed) {
@@ -39,26 +56,24 @@ export async function loadIdeas() {
                 }
             });
 
-            const buttonsDiv = document.createElement('div');
-            buttonsDiv.appendChild(updateButton);
-            buttonsDiv.appendChild(deleteButton);
+            buttonDivs.appendChild(updateButton);
+            buttonDivs.appendChild(deleteButton);
 
-            titleRowDiv.appendChild(buttonsDiv);
-            ideaDiv.appendChild(titleRowDiv);
-
-            const descriptionRowDiv = document.createElement('div');
-            descriptionRowDiv.classList.add('descriptions');
-            descriptionRowDiv.textContent = idea.description;
-
-            ideaDiv.appendChild(descriptionRowDiv);
+            ideaDiv.appendChild(countDiv); // add the count div to the idea div
+            ideaDiv.appendChild(titleDiv);
+            ideaDiv.appendChild(descriptionDiv);
+            ideaDiv.appendChild(buttonDivs);
 
             ideasList.appendChild(ideaDiv);
+
+            count++; // increment the counter variable
         });
     } catch (error) {
         console.error('Failed to load ideas:', error);
         alert('Failed to load ideas!');
     }
 }
+
 
 
 // imported in client/createdPage.js

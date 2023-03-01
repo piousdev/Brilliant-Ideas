@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Andreas';
+   src: url('../_assets/fonts/Andreas Font/andreas.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ArchivGrotesk';
+   src: url('../_assets/fonts/ArchivGroteskTrial-RegularTrial.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gilroy';
+   src: url('../_assets/fonts/Gilroy-FREE/Gilroy-Light.otf') format('truetype');
+}
+
+
 :root {
     --purple: rgb(123, 31, 162);
     --violet: rgb(103, 58, 183);
@@ -39,33 +55,23 @@
 
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
 }
 
 #main-header {
     font-size: 2rem;
     font-weight: 700;
-    font-family: "Space Mono", monospace;
+    font-family: "Andreas", sans-serif;
     margin-bottom: 1rem;
 }
 
 /* Magic Text */
 #main-paragraph {
-    font-size: 1.5rem;
-    font-weight: 400;
-    font-family: "Space Mono", monospace;
-    margin-bottom: 1rem;
-}
-
-/* how to edit this anchor link text */
-#main-paragraph {
     font-size: clamp(1.5em, 1.5vw, 3em);
     font-weight: 400;
-    font-family: "Rubik", sans-serif;
+    font-family: "ArchivGrotesk", sans-serif;
     text-align: center;
 }
 
@@ -113,6 +119,10 @@ p > .magic > .magic-star > svg > path {
 
 
 /* ideas loading styles */
+.ideas-container {
+    width: 50%;
+}
+
 #ideas-list {
     display: flex;
     flex-direction: column;
@@ -122,17 +132,80 @@ p > .magic > .magic-star > svg > path {
 .ideas {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-.titles {
+.count {
+    font-weight: bold;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.buttons {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
-.descriptions {
-    width: 100%;
+.updateButton {
+    background-color: #ffffff;
+    border: 1px solid #2196f3;
+    color: #2196f3;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.deleteButton {
+    background-color: #ffffff;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.updateButton:hover, .deleteButton:hover {
+    background-color: #f0f0f0;
+}
+
+
+/*.ideas {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 10px;*/
+/*}*/
+
+/*.titlesAndButtons {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*.descriptions {*/
+/*    width: 100%;*/
+/*}*/
+
+/*.buttons {*/
+/*    display: flex;*/
+/*    gap: 10px;*/
+/*}*/
+
+.updateButton, .deleteButton {
+    cursor: pointer;
 }
 
 

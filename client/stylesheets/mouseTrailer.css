@@ -43,9 +43,9 @@
     border-radius: 100%;
 }
 
-.loader-container.is-hovered .loader {
-    filter: blur(50px);
-}
+/*.loader-container.is-hovered .loader {*/
+/*    filter: blur(5px);*/
+/*}*/
 
 
 @keyframes filterHue2 {
