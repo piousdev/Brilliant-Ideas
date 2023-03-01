@@ -5,30 +5,32 @@ export async function loadIdeas() {
         const ideasList = document.getElementById('ideas-list');
         const ideas = await response.json();
         ideas.forEach(idea => {
-            const li = document.createElement('li');
-            li.textContent = `${idea.title}: ${idea.description}`;
+            const ideaDiv = document.createElement('div');
+            ideaDiv.classList.add('ideas');
 
-            // Add an "Update" button for each idea
+            const titleRowDiv = document.createElement('div');
+            titleRowDiv.classList.add('titles');
+            titleRowDiv.textContent = idea.title;
+
             const updateButton = document.createElement('button');
             updateButton.textContent = 'Update';
             updateButton.addEventListener('click', async () => {
-                // Redirect to the created page with the idea data
                 window.location.href = `http://localhost:3000/createdPage.html?id=${idea.id}&title=${idea.title}&description=${idea.description}`;
             });
 
             const deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete');
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', async () => {
                 const confirmed = confirm('Are you sure you want to delete this idea?');
                 if (!confirmed) {
-                    return; // Do nothing if the user cancels the confirmation
+                    return;
                 }
 
-                // Delete the idea if confirmed
                 try {
                     const res = await fetch(`http://localhost:3000/ideas/${idea.id}`, { method: 'DELETE' });
                     if (res.ok) {
-                        li.remove();
+                        ideaDiv.remove();
                     } else {
                         console.error('Failed to delete idea:', res.statusText);
                     }
@@ -37,15 +39,27 @@ export async function loadIdeas() {
                 }
             });
 
-            li.appendChild(updateButton);
-            li.appendChild(deleteButton);
-            ideasList.appendChild(li);
+            const buttonsDiv = document.createElement('div');
+            buttonsDiv.appendChild(updateButton);
+            buttonsDiv.appendChild(deleteButton);
+
+            titleRowDiv.appendChild(buttonsDiv);
+            ideaDiv.appendChild(titleRowDiv);
+
+            const descriptionRowDiv = document.createElement('div');
+            descriptionRowDiv.classList.add('descriptions');
+            descriptionRowDiv.textContent = idea.description;
+
+            ideaDiv.appendChild(descriptionRowDiv);
+
+            ideasList.appendChild(ideaDiv);
         });
     } catch (error) {
         console.error('Failed to load ideas:', error);
         alert('Failed to load ideas!');
     }
 }
+
 
 // imported in client/createdPage.js
 export async function createIdea(title, description) {
