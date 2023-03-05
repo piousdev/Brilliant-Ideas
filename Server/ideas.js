@@ -7,7 +7,8 @@ router.get('/', async (req, res) => {
     let connection;
     try {
         connection = await pool.getConnection();
-        const rows = await connection.query('SELECT * FROM ideas');
+        // const rows = await connection.query('SELECT * FROM ideas');
+        const rows = await connection.query('SELECT id, title, description, created_at, updated_at FROM ideas');
         console.log(`Retrieved ${rows.length} rows from database`);
         res.send(rows);
     } catch (err) {
@@ -86,8 +87,8 @@ router.route('/:id')
         try {
             connection = await pool.getConnection();
             await connection.execute(
-                'UPDATE ideas SET title=?, description=? WHERE id=?',
-                [title, description, id]
+                'UPDATE ideas SET title=?, description=?, updated_at=? WHERE id=?',
+                [title, description, new Date(), id]
             );
             const updatedIdea = {
                 id: Number(id),

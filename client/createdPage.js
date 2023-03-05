@@ -7,6 +7,18 @@ console.log('Loading createdPage.js');
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
+// Update the form title and description based on whether the id parameter is present
+const formTitle = document.querySelector(".title");
+const formDescription = document.querySelector(".description");
+
+if (id) {
+    formTitle.textContent = "Update Idea";
+    formDescription.textContent = "Please update the details of your idea in the form below and click on 'Save' to update it in the database.";
+} else {
+    formTitle.textContent = "Create Idea";
+    formDescription.textContent = "Please fill in the form below and click on 'Save' to create a file. Once saved, the file will be stored in the database and can be modified as many times as needed.";
+}
+
 // If an id parameter is present, fetch the existing idea data from the server using a GET request, and populate the form fields with the data
 if (id) {
     try {
@@ -53,7 +65,6 @@ async function handleSubmit(event) {
     }
 }
 
-
 const createIdeaForm = document.getElementById('create-idea-form');
 createIdeaForm.addEventListener('submit', handleSubmit);
 
@@ -62,10 +73,15 @@ const titleInput = document.getElementById('title');
 const descriptionInput = document.getElementById('description');
 const submitButton = document.getElementById('submit-button');
 
-titleInput.addEventListener('input', () => {
-    submitButton.disabled = titleInput.value === '' || descriptionInput.value === '';
-});
+if (titleInput && descriptionInput && submitButton) {
+    titleInput.addEventListener('input', () => {
+        submitButton.disabled = titleInput.value === '' || descriptionInput.value === '';
+    });
 
-descriptionInput.addEventListener('input', () => {
-    submitButton.disabled = titleInput.value === '' || descriptionInput.value === '';
-});
+    descriptionInput.addEventListener('input', () => {
+        submitButton.disabled = titleInput.value === '' || descriptionInput.value === '';
+    });
+} else {
+    console.error('Failed to initialize event listeners: input fields or submit button not found');
+}
+

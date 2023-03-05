@@ -21,13 +21,13 @@ const __dirname = dirname(__filename);
 app.use(express.static(path.join(__dirname, '../client')));
 app.use(express.static(path.join(__dirname, '../_assets')));
 
-// Mount the ideas router
+// Mount the ideas router at /ideas path prefix
 app.use('/ideas', ideasRouter);
 
-// Mount the 404 handler
+// Mount the 404 handler at the end of the middleware chain
 app.use(notFoundHandler);
 
-// Mount the error handler
+// Mount the error handler at the end of the middleware chain
 app.use(errorHandler);
 
 const port = process.env.PORT || 3000;

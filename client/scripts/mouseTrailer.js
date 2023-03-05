@@ -9,8 +9,8 @@ window.addEventListener("mousemove", (e) => {
     parent_div.appendChild(inner_div);
     document.body.appendChild(parent_div);
 
-    parent_div.style.left = (e.clientX - 25)+'px';
-    parent_div.style.top = (e.clientY - 25)+'px';
+    parent_div.style.left = (e.clientX - 50)+'px';
+    parent_div.style.top = (e.clientY - 50)+'px';
 
     if(document.getElementsByClassName('loader-container').length > 50) {
         document.body.removeChild(to_append)
