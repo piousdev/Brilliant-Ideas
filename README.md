@@ -109,7 +109,8 @@ It would be an understatement to say that I did not find this assignment particu
 
 3. Working with asynchronous code: At first I didn't understand well, why asynchronicity is so valued in Back end 
    programming. There were several asynchronous functions and methods used in the project, such as fetching data 
-   from the server and handling form submissions. This was challenging for me as I was not too very well-equipped with asynchronous programming. I had to spend some time learning about promises and async/await to fully understand how to work with them and when and why I should work with them.
+   from the server and handling form submissions. This was challenging for me as I was not too very well-equipped 
+   with asynchronous programming. I had to spend some time learning about promises and async/await to fully understand how to work with them and when and why I should work with them. 
 
 4. Error debugging: While working on the project, I discovered various issues that I had to troubleshoot. This was difficult since it was not always evident what was generating the issues or how to correct them. I had to spend hours debugging the code and seeking internet for answers. Looking at the source code, you can see that I use console.log a lot, significantly more than I have in any of my past projects.
 
