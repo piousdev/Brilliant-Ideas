@@ -74,7 +74,7 @@ export async function loadIdeas() {
 
             // add event listeners to the buttons
             updateButton.addEventListener("click", async () => {
-                window.location.href = `http://localhost:3000/createdPage.html?id=${idea.id}&title=${idea.title}&description=${idea.description}`;
+                window.location.href = `../html/createdPage.html`;
             });
 
             // Add a click event listener to the delete button
