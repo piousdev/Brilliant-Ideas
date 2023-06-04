@@ -4,9 +4,9 @@ import cors from 'cors';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-import { errorHandler } from './scripts/errorHandler.js';
-import { notFoundHandler } from './scripts/notFoundHandler.js';
-import { router as ideasRouter } from './scripts/ideas.js';
+import { errorHandler } from './public/scripts/errorHandler.js';
+import { notFoundHandler } from './public/scripts/notFoundHandler.js';
+import { router as ideasRouter } from './public/scripts/ideas.js';
 
 dotenv.config();
 
@@ -18,10 +18,8 @@ app.use(cors());
 // Serve static files from the client folder
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-app.use(express.static(path.join(__dirname, './')));
-app.use(express.static(path.join(__dirname, './stylesheets')));
-app.use(express.static(path.join(__dirname, './scripts')));
-app.use(express.static(path.join(__dirname, './html')));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Mount the ideas router at /ideas path prefix
 app.use('/ideas', ideasRouter);

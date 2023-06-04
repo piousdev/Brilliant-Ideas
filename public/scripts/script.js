@@ -1,4 +1,4 @@
-import { loadIdeas } from './scripts/api.js';
+import { loadIdeas } from './api.js';
 
 (async () => {
     await loadIdeas();
