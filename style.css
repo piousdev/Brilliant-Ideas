@@ -44,6 +44,10 @@ body {
     background-color: #EDFFB8;
 }
 
+a {
+    text-decoration: none;
+}
+
 .quote {
     font-size: clamp(0.5em, 1vw, 2em);
     font-family: "Gilroy", sans-serif;
@@ -561,11 +565,6 @@ button.up:focus::after {
     line-height: 1.2;
     margin-top: -30px;
 }
-
-
-
-
-
 
 
 /* Scrollbar Styles */

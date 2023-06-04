@@ -1,5 +1,5 @@
-import { fetchIdea } from './scripts/utils.js';
-import { createIdea, updateIdea } from './scripts/api.js';
+import { fetchIdea } from './utils.js';
+import { createIdea, updateIdea } from './api.js';
 
 console.log('Loading createdPage.js');
 

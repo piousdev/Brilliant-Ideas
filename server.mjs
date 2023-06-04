@@ -4,9 +4,9 @@ import cors from 'cors';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-import { errorHandler } from './errorHandler.js';
-import { notFoundHandler } from './notFoundHandler.js';
-import { router as ideasRouter } from './ideas.js';
+import { errorHandler } from './scripts/errorHandler.js';
+import { notFoundHandler } from './scripts/notFoundHandler.js';
+import { router as ideasRouter } from './scripts/ideas.js';
 
 dotenv.config();
 
@@ -34,3 +34,5 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
+
+export default app;

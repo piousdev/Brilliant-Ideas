@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script defer type="module" src="createdPage.js"></script>
+    <script defer type="module" src="scripts/createdPage.js"></script>
     <title>Brilliant Minds - Create Idea</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +11,8 @@
     <div class="container">
         <div class="left">
             <div class="title created-idea-title">Create Idea</div>
-            <div class="description created-idea-description">Please complete the form and save it to create a file. Once saved, the file will be stored in the database and can be modified as many times as needed.</div>
+            <div class="description created-idea-description">Please complete the form and save it to create a file. Once saved, the file will be stored in the database and can be modified as many times as needed.
+            </div>
         </div>
         <div class="right">
             <form id="create-idea-form">
@@ -20,6 +21,7 @@
                 <label class="formLabels" for="description">Description:</label>
                 <textarea id="description" name="description" required aria-required="true"></textarea><br>
                 <button id="submit-button" class="updateButton pulse createdPageButton" type="submit">Save</button>
+                <button class="updateButton pulse createdPageButton"><a href="index.html">Back</a></button>
             </form>
         </div>
     </div>
