@@ -18,10 +18,10 @@ app.use(cors());
 // Serve static files from the client folder
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-app.use(express.static(path.join(__dirname, '../')));
-app.use(express.static(path.join(__dirname, '../stylesheets')));
-app.use(express.static(path.join(__dirname, '../scripts')));
-app.use(express.static(path.join(__dirname, '../html')));
+app.use(express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, './stylesheets')));
+app.use(express.static(path.join(__dirname, './scripts')));
+app.use(express.static(path.join(__dirname, './html')));
 
 // Mount the ideas router at /ideas path prefix
 app.use('/ideas', ideasRouter);
