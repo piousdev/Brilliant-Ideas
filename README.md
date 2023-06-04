@@ -4,9 +4,9 @@
 ## Project Overview
 This project is a simple web application that allows users to create, read, update, and delete ideas. The app has a `home page` and an `edit/create page`. Users can add new ideas or modify existing ones on the `create/update` page, which can be accessed from the main page.
 
-**Note**: I made some changes to the applications as a whole so that the project can be seen in real time from a browser. I want to use a free service instead of localhost to host my database. Once that is done, you will be able to see everything in real time.
+**Note**: I made some changes to the application as a whole so that the project can be seen in real time from a browser. I want to use a free service instead of localhost to host my database. Once that is done, you will be able to see everything in real time.
 
-Important changes were made in the server.mjs which previously was looking at a port from my localhost to instead implemented the server for vercel. 
+Important changes were made in the server.mjs which previously was looking at a port from my localhost to instead implemented the server.mjs for vercel. 
 
 ## Project Functionality
 
