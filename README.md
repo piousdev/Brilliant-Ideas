@@ -4,17 +4,6 @@
 ## Project Overview
 This project is a simple web application that allows users to create, read, update, and delete ideas. The app has a `home page` and an `edit/create page`. Users can add new ideas or modify existing ones on the `create/update` page, which can be accessed from the main page.
 
-
-## The project consists of the following files:
-
-- Client Folder: HTML, CSS & JavaScript Files
-- Server Side: ECMAScript Modules Files, JavaScript Files, Package JSON files and the necessary `gitignores`
-- ReadME File
-
-![Screenshot 2023-03-05 at 12 41 20](https://user-images.githubusercontent.com/102190049/222958810-dd01a4f1-192a-496c-b64d-973d81919886.png)
-
-![Screenshot 2023-03-05 at 12 41 35](https://user-images.githubusercontent.com/102190049/222958804-b3fd6aef-2046-4dc3-aa0f-31a0b4f0c839.png)
-
 ## Project Functionality
 
 Home Page
