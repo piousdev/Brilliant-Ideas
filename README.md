@@ -108,3 +108,5 @@ It would be an understatement to say that I did not find this assignment particu
    To obtain the aesthetic I want, I had to spend time studying about how CSS and JavaScript can work together to bring useful styling to your website and experimenting with various styles.
 
 Ultimately, working on this project was a wonderful learning opportunity. Although it was difficult at times, it assisted me in gaining a better grasp of web development and the tools and technologies utilized in the area, notably `RESTful` APIs. 
+
+**Note**: I made some changes to the applications as a whole so that the project can be seen in real time from a browser. I want to use a free service instead of localhost to host my database. Once that is done, you will be able to see everything in real time.
